@@ -1,0 +1,29 @@
+body.im
+{
+	background-image: url("/esportsclub/images/f.jpg");	
+}
+
+a
+{
+	text-decoration: none;	
+}
+
+a:LINK
+{
+	color:yellow;
+}
+a:VISITED 
+{
+	color:red;
+}
+a:HOVER 
+{
+	color:aqua;
+	background: #000097;
+}
+a:ACTIVE 
+{
+	color:#237834;
+}
+
+.

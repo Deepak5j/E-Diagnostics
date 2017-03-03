@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Sports</title>
+<link rel="stylesheet" type="text/css" href="/esportsclub/css/bg-link.css">
+<style>
+	table.bg
+	{
+		width:300px;height: 200px;
+		background-color: #0000ff;border-color:#00ff00;color: #ffff00;
+		border-style: inset;
+		border-radius:5px;
+		margin-top: 10px;margin-left:20px;	
+		border-width: 5px;
+		
+	}
+</style>
+<script type="text/javascript">
+function chngImg() 
+{
+	var im = document.getElementById("myimg")
+	im.src="/esportsclub/images/logo2.png"
+	
+}
+function rollImg()
+{
+	var im = document.getElementById("myimg")
+	im.src="/esportsclub/images/logo1.png"
+}
+function showPage(tmp)
+{
+	if(tmp=="cricket.html")
+		window.location.href="/esportsclub/html/"+tmp;
+	if(tmp=="tennis.html")
+		window.location.href="/esportsclub/html/"+tmp;
+	if(tmp=="badminton.html")
+		window.location.href="/esportsclub/html/"+tmp;
+}
+function gameInfo(val) 
+{
+	//var i=1;
+	//alert("1.Entering main function"+i);
+	
+	if(XMLHttpRequest)
+	{	
+		//i++;
+		var x=new XMLHttpRequest();
+		//alert("2.Entering if()  "+i);
+	}
+	else
+	{
+		//i++;
+		var x=new ActiveXObject("MicrosoftXMLHTTP");
+		//alert("3.Entering else"+i);
+	}
+	x.onreadystatechange = function () 
+	{
+		//i++;
+		//alert("4.Entering call back function"+i);
+		if(x.readyState==4&&x.status==200)
+		{
+			var data=x.responseText;
+			document.getElementById("infoDiv").innerHTML = data;
+			//alert("5.data="+i+"=="+data);
+			//alert("6.writing innerHTML"+i);
+		}
+	}
+	x.open("get","/esportsclub/SportsInfo?vi="+val,"true");//   here 'ui' get value of 'userid' and pass to 'doGet' i.e. to Server
+	//i++;
+	//alert("7.==open=="+i);
+	//i++;
+	x.send();
+	//alert("8.==send=="+i);
+}
+function formFill(val) 
+{
+	//var i=1;
+	//alert("1.Entering main function"+i);
+	
+	if(XMLHttpRequest)
+	{	
+		//i++;
+		var x=new XMLHttpRequest();
+		//alert("2.Entering if()  "+i);
+	}
+	else
+	{
+		//i++;
+		var x=new ActiveXObject("MicrosoftXMLHTTP");
+		//alert("3.Entering else"+i);
+	}
+	x.onreadystatechange = function () 
+	{
+		//i++;
+		//alert("4.Entering call back function"+i);
+		if(x.readyState==4&&x.status==200)
+		{
+			var name=hour=charge=""; 
+			
+			var data=x.responseText;
+			var val = data.split('z');
+			var name = val[0];
+			var hour = val[1];
+			var charge = val[2];
+			
+			document.getElementById("name").value = name;
+			document.getElementById("hour").value = hour;
+			document.getElementById("charge").value = charge;
+			
+			//alert("5.data="+i+"=="+data);
+			//alert("6.writing innerHTML"+i);
+		}
+	}
+	x.open("get","/esportsclub/SportsForm?fi="+val,"true");//   here 'ui' get value of 'userid' and pass to 'doGet' i.e. to Server
+	//i++;
+	//alert("7.==open=="+i);
+	//i++;
+	x.send();
+	//alert("8.==send=="+i);
+}
+</script>
+</head>
+<body class="im">
+<div style="background-color: yellow;width: 100%;height: 120px;float:left">
+	<div style="width: 200px;height: 120px; float: right;background-color: lisme">
+		<img src="/esportsclub/images/logo1.png" style="width: 90%;height: 90%;margin-left: 9px;margin-top: 9px;" id="myimg" onmouseover="chngImg()" onmouseout="rollImg()">
+	</div>
+	<h1 style="color: maroon;font-family: serif;text-transform: capitalize;text-decoration: underline;text-align: center">
+		Sports Page
+	</h1>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left:10px;font-size: 25px; ">
+		<a href="/esportsclub/html/index.html">Home</a>
+	</div>
+		<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/html/aboutus.html">About Us</a>
+	</div>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/html/services.html">Services</a>
+	</div>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/html/login.html">Log In</a>
+	</div>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/html/signup.html">Sign Up</a>
+	</div>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/html/sports.html">Sports</a>
+	</div>
+</div>
+<div class="as">
+&nbsp
+</div>
+
+<!-- Sports select -->
+<span style="float:left;width:104px;height: 20px;background-color: #0000ff;border-color:#00ff00;color: #ffff00;
+		border-style: inset;border-radius:5px;margin-top: 10px;margin-left:20px;border-width: 5px;">
+	<select name="game" onchange="gameInfo(this.value)">
+		<option value="no" selected>Select Sports</option>
+		<option value="tennis">Tennis</option>
+		<option value="cricket">Cricket</option>
+		<option value="badminton">Badminton</option>
+	</select>
+</span>
+	
+	<div id="infoDiv" style="float:left;background-color: red;width: 400px;height: 100%;margin-top:60px;;margin-left: -110px;
+			margin-right: 0px;border-width:0px;border-style: outset;border-radius:5px;border-color:#00ff00;
+			color:blue">
+				
+	</div>
+	
+	
+<!-- form fill -->	
+	
+	<div style="float:left;margin-top:430px;margin-left:-400px;margin-right:400px;color:green
+	border-style: inset;border-radius:5px;;border-width: 5px;width:87px;height: 20px;background-color: #0000ff;
+	border-color:#00ff00;color: #ffff00;border-style: inset;border-radius:5px;;border-width: 5px;">
+		<select name="form" onchange="formFill(this.value)">
+		<option value="n">Select</option>
+		<option value="ten">Tennis</option>
+		<option value="cri">Cricket</option>
+		<option value="bad">Badminton</option>
+		</select>
+		
+		<div style="float:left;background-color: #0000ff;width: 335px;height: 280px;margin-top:10px;;margin-left: -4px;
+			margin-right: 0px;border-width:0px;border-style: outset;border-radius:5px;border-color:#00ff00;
+			color:blue">
+			<div style=";text-align: center;font-family: sans-serif;padding-top:10px;color:teal;font-weight: bold;
+					font-size: 30px">Update the data</div>
+			<form method="post" action="">
+				<table style="border-spacing:20px; border-style:inset;padding:0px;margin:20px;color:#00ff00">
+					  <tr>
+					    <td>Name:</td>
+					    <th><input type="text" name="name" id="name" placeholder=""></th>
+					  </tr>
+					  <tr>
+					    <td>Hours:</td>
+					    <td><input type="text" name="hour" id="hour" placeholder=""></td>
+					  </tr>
+					  <tr>
+					    <td>Charges:</td>
+					    <td><input type="text" name="charge" id="charge" placeholder=""></td>
+					  </tr>
+					  <tr>
+					  <th colspan="2"><button type="submit">Update</button></th>
+					  </tr>					  
+				</table>	
+			</form>	
+		</div>
+	
+	</div>
+	
+	
+
+	
+	
+	
+	
+	
+<table border=1 align="center" style="width:300px; height: 200px; background-color: #0000ff;
+	border-color:#00ff00;border-style: inset;border-width: 5px;border-radius:5px;
+	color: #ffff00;	margin-top: 10px;">
+  <tr><th>Name</th>   <th>Charges</th></tr>
+  <tr><td>Cricket</td><td>22</td>
+  <tr><td>Tennis</td><td>33</td>
+  <tr><td>Badminton</td><td>43</td>
+  </tr>
+</table>
+<div  align="left" style="color: rgb(00,255,0);margin-left: 58%;margin-right: 32%; margin-top:40px;
+		background-color: rgb(0,0,222);border-style:inset; ;border-radius:5px;border-color:blue;
+		padding:5px">
+	<input type="radio" name="spo" id="spo" value="cricket.html" onclick="showPage(this.value)">Cricket<br/>
+	<input type="radio" name="spo" id="spo" value="tennis.html" onclick="showPage(this.value)">Tennis<br/>
+	<input type="radio" name="spo" id="spo" value="badminton.html" onclick="showPage(this.value)">Badminton
+
+</div>
+</body>
+</html>

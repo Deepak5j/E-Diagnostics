@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="/esportsclub/css/bg-link.css">
+<title>index</title>
+<script type="text/javascript">
+function chngImg() 
+{
+	var im = document.getElementById("myimg")
+	im.src="/esportsclub/images/logo2.png"
+	
+}
+function rollImg()
+{
+	var im = document.getElementById("myimg")
+	im.src="/esportsclub/images/logo1.png"
+}
+var arr = new Array(3);
+arr[0]="/esportsclub/images/a.jpg";
+arr[1]="/esportsclub/images/b.jpg";
+arr[2]="/esportsclub/images/c.jpg";
+arr[3]="/esportsclub/images/d.jpg";
+arr[4]="/esportsclub/images/e.jpg";
+arr[5]="/esportsclub/images/f.jpg";
+var idx=0;
+function showImage()
+{
+
+  document.getElementById("myImg1").src=arr[idx];
+  idx++;
+  if(idx>5)
+	  idx=0;
+  setTimeout("showImage()", 1000);
+  
+}
+</script>
+</head>
+<body class="im" bgcolor="black"  onload="showImage()">
+<div style="background-color: yellow;width: 100%;height: 120px;float:left">
+	<div style="width: 200px;height: 120px; float: right;background-color: lisme">
+		<img src="/esportsclub/images/logo1.png" style="width: 90%;height: 90%;margin-left: 9px;margin-top: 9px;" id="myimg" onmouseover="chngImg()" onmouseout="rollImg()">
+	</div>
+	<h1 style="color: maroon;font-family: serif;text-transform: capitalize;text-decoration: underline;text-align: center">
+		e-sports club
+	</h1>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left:10px;font-size: 25px; ">
+		<a href="/esportsclub/html/index.html">Home</a>
+	</div>
+		<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/html/aboutus.html">About Us</a>
+	</div>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/html/services.html">Services</a>
+	</div>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/jsp/login.jsp">Log In</a>
+	</div>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/jsp/signup.jsp">Sign Up</a>
+	</div>
+	<div style="background-color: green;width: 100px;height: 31px;float:left;margin-left: 20px;font-size: 25px;">
+		<a href="/esportsclub/html/sports.html">Sports</a>
+	</div>
+</div>
+<div style="width: 20%;height: 400px;float:left ;background-image: url('/esportsclub/images/c.jpg');">
+	<h1 style="color: #00ddff;font-family: serif;text-transform: capitalize;text-decoration: underline;text-align: center;font-size: 40px;">
+		<img border=1 src="/esportsclub/images/a.jpg" id="myImg1" style="width:90%;height:250px; border-width: 9px;border-color: green; border-style: ridge; ">
+	</h1>
+</div>
+<div style="background-color: blue;width: 80%;height: 400px;float:left">
+	<p style="color: #00ddff;font-family: serif;text-transform: capitalize;font-size:100px;text-align: center">
+		Main Body
+	</p>
+</div>
+<div style="background-color: green;width: 100%;height: 130px;float:left">
+	<h1 style="color: #00ddff;font-family: serif;text-transform: capitalize;text-decoration: underline;text-align: center;font-size: 40px;">
+		Footer
+	</h1>
+</div>
+</body>
+</html>
