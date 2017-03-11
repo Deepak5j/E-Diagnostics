@@ -1,5 +1,5 @@
 # e-diagnostics
-### Industrial Trainig Project.
+### Industrial Training Project.
 * Dynamic website
 * JEE
 * website to facilitate the jobs in diagnostics center
