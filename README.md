@@ -3,4 +3,4 @@
 * Dynamic website
 * JEE
 * website to facilitate the jobs in diagnostics center
-![ScreenShot1](https://github.com/Deepak5j/E-Diagnostics/blob/master/Screen%20Shots/9.png)
+![ScreenShot1](https://github.com/Deepak5j/E-Diagnostics/blob/master/Screen%20Shots/1.png)
